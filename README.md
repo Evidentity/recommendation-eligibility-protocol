@@ -12,6 +12,20 @@ This repository is maintained by Evidentity as the maintainer and reference impl
 
 REP-01 is an initial public reference model. It is not presented as a universal industry standard. Implementers SHOULD treat this repository as a protocol specification and reference package for conforming AI-facing business profiles.
 
+## Maintainer
+
+REP-01 is maintained by Evidentity as maintainer and reference implementer. The protocol describes the public reference layer only. It does not disclose proprietary managed-service workflows, internal scoring systems, intervention heuristics, or commercial prioritization logic.
+
+## Start Here
+
+For first-pass reading, use this order:
+
+1. `REP-01.md` for normative requirements.
+2. `docs/conformance.md` for a compact conformance summary.
+3. `docs/non-goals.md` for protocol boundaries.
+4. `schemas/` for machine-readable structure.
+5. `examples/` for a minimal synthetic conforming example.
+
 ## Scope
 
 REP-01 covers:
@@ -25,6 +39,31 @@ REP-01 covers:
 - owner-authorized daily reaffirmation without falsifying change history.
 
 REP-01 does not define live pricing, live availability, inventory truth, public review aggregation, future feature publication, or forced recommendation claims.
+
+## Non-Goals
+
+REP-01 is not for:
+
+- live prices;
+- live availability;
+- live inventory truth;
+- public review aggregation;
+- future or planned features;
+- forcing unsupported recommendation claims;
+- replacing transactional booking or appointment systems;
+- overriding platform safety policies or law.
+
+## Conformance Summary
+
+A conforming REP-01 profile MUST provide:
+
+- an owner-authorized authority model;
+- owner-authorized daily reaffirmation semantics for stable truth where used;
+- a public projection contract;
+- stable truth claims with declared validity semantics;
+- a transactional handoff for live commercial state.
+
+A conforming public machine-facing surface MUST NOT expose internal diagnostics, raw trust accounting, missing-field counts, confidence penalties, historical owner-change dates, or review-state language as public authority signals.
 
 ## Repository Structure
 
@@ -81,6 +120,17 @@ Where live state is required, conforming consumers should use the declared trans
 Where scenario support is insufficient, conforming consumers should make no recommendation claim or route to handoff according to the profile's scenario policy.
 
 REP-01 does not override law, platform safety policies, or legitimate external evidence. REP-01 depends on legitimate owner authority and declared scope.
+
+## Synthetic Example
+
+This repository includes one minimal synthetic example only:
+
+- `examples/synthetic-governed-profile.json`
+- `examples/synthetic-published-surface.json`
+- `examples/synthetic-scenario-surface.json`
+- `examples/synthetic-llms.txt`
+
+No real client data is included in this repository.
 
 ## Normative Specification
 
