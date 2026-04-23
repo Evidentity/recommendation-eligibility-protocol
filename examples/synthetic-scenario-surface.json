@@ -1,0 +1,37 @@
+{
+  "protocol_version": "REP-01",
+  "profile_id": "synthwave-boutique-hotel-example",
+  "scenario_surface_type": "bounded_public_scenario_surface",
+  "reaffirmed_as_of": "2026-04-23",
+  "scenarios": [
+    {
+      "scenario_key": "late_arrival",
+      "label": "Late arrival",
+      "external_state": "supported_for_recommendation",
+      "recommendation_claim_allowed": true,
+      "handoff_required": false,
+      "supporting_claim_ids": [
+        "clm_policy_late_arrival",
+        "clm_contact_booking"
+      ],
+      "blocking_claim_ids": [],
+      "blocker_types": [],
+      "public_rule": "may_use_for_recommendation_within_declared_scope"
+    },
+    {
+      "scenario_key": "remote_work",
+      "label": "Remote work",
+      "external_state": "handoff_required",
+      "recommendation_claim_allowed": false,
+      "handoff_required": true,
+      "supporting_claim_ids": [
+        "clm_amenity_wifi"
+      ],
+      "blocking_claim_ids": [],
+      "blocker_types": [
+        "missing_reassurance"
+      ],
+      "public_rule": "route_to_handoff_or_make_no_claim"
+    }
+  ]
+}

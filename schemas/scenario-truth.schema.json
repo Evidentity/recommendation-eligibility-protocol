@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidentity.ai/rep-01/schemas/scenario-truth.schema.json",
+  "title": "REP-01 Scenario Truth",
+  "description": "Bounded scenario surface for expressing whether stable facts support a specific user scenario.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scenario_key",
+    "label",
+    "external_state",
+    "recommendation_claim_allowed",
+    "handoff_required",
+    "public_rule"
+  ],
+  "properties": {
+    "scenario_key": {
+      "type": "string",
+      "pattern": "^[a-z0-9_\\-]+$"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "external_state": {
+      "type": "string",
+      "enum": [
+        "supported_for_recommendation",
+        "not_exposed_for_recommendation",
+        "handoff_required",
+        "no_claim"
+      ]
+    },
+    "recommendation_claim_allowed": {
+      "type": "boolean"
+    },
+    "handoff_required": {
+      "type": "boolean"
+    },
+    "supporting_claim_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "blocking_claim_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "blocker_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "missing_required_fact",
+          "missing_reassurance",
+          "declared_limitation",
+          "transactional_dependency",
+          "external_conflict",
+          "insufficient_specificity",
+          "not_in_scope",
+          "owner_not_declared"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "public_rule": {
+      "type": "string",
+      "enum": [
+        "may_use_for_recommendation_within_declared_scope",
+        "route_to_handoff_or_make_no_claim",
+        "do_not_make_recommendation_claim"
+      ]
+    },
+    "projection_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "external_state": { "const": "supported_for_recommendation" }
+        }
+      },
+      "then": {
+        "properties": {
+          "recommendation_claim_allowed": { "const": true },
+          "handoff_required": { "const": false }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "external_state": { "const": "handoff_required" }
+        }
+      },
+      "then": {
+        "properties": {
+          "recommendation_claim_allowed": { "const": false },
+          "handoff_required": { "const": true }
+        }
+      }
+    }
+  ]
+}

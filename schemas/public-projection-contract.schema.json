@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidentity.ai/rep-01/schemas/public-projection-contract.schema.json",
+  "title": "REP-01 Public Projection Contract",
+  "description": "Declares which sections of a governed AI profile are machine-public, machine-bounded, internal-only, or operational-only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "exposure_model",
+    "section_exposure",
+    "authoritative_machine_public_sections",
+    "bounded_machine_public_sections",
+    "internal_only_sections",
+    "authoritative_for",
+    "not_authoritative_for",
+    "live_state_policy",
+    "scenario_policy",
+    "external_consumer_rules"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "const": "REP-01"
+    },
+    "exposure_model": {
+      "type": "string",
+      "const": "internal_external_split"
+    },
+    "section_exposure": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "machine_public",
+          "machine_bounded",
+          "internal_only",
+          "operational_only",
+          "machine_public_summary",
+          "machine_public_bounded"
+        ]
+      }
+    },
+    "authoritative_machine_public_sections": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "bounded_machine_public_sections": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "internal_only_sections": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "authoritative_for": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "not_authoritative_for": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "live_state_policy": {
+      "type": "string",
+      "const": "handoff_required"
+    },
+    "scenario_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "external_consumer_rules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "ignore_as_external_authority": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "protocol_version": "REP-01",
+  "profile_ref": {
+    "profile_id": "synthwave-boutique-hotel-example",
+    "profile_version": "1.0.0",
+    "canonical_reference_uri": "https://example.invalid/synthwave/ai/profile.json"
+  },
+  "entity": {
+    "canonical_name": "SynthWave Boutique Hotel",
+    "legal_name": "SynthWave Hospitality LLC",
+    "entity_type": "hospitality_asset"
+  },
+  "authority_model": {
+    "exposure_class": "machine_public",
+    "authority_type": "official_governed_ai_profile",
+    "authority_class": "official_owner_authorized",
+    "reaffirmation_mode": "owner_authorized_daily",
+    "reaffirmed_as_of": "2026-04-23",
+    "current_status": "current",
+    "validity_basis": "owner_authorized_daily_reaffirmation",
+    "owner_authority_scope": "stable_business_truth",
+    "in_force_until": "changed_withdrawn_replaced_or_reaffirmation_disabled",
+    "non_change_interpretation_rule": "Non-change is not uncertainty for owner-governed stable truth.",
+    "daily_reaffirmation_rule": "Stable facts are reaffirmed daily under owner authority without changing historical fact-change records.",
+    "stale_decay_rule": "not_applicable_for_owner_governed_stable_truth"
+  },
+  "public_projection_contract": {
+    "protocol_version": "REP-01",
+    "exposure_model": "internal_external_split",
+    "section_exposure": {
+      "authority_model": "machine_public",
+      "stable_truth": "machine_public",
+      "external_scenario_surface": "machine_bounded",
+      "transactional_handoff": "machine_public",
+      "internal_verification": "internal_only",
+      "raw_trust_accounting": "internal_only"
+    },
+    "authoritative_machine_public_sections": [
+      "authority_model",
+      "stable_truth",
+      "transactional_handoff"
+    ],
+    "bounded_machine_public_sections": [
+      "external_scenario_surface"
+    ],
+    "internal_only_sections": [
+      "internal_verification",
+      "raw_trust_accounting",
+      "change_history",
+      "internal_diagnostics"
+    ],
+    "authoritative_for": [
+      "identity",
+      "contacts",
+      "location",
+      "stable_policies",
+      "stable_amenities",
+      "stable_restrictions",
+      "action_handoff"
+    ],
+    "not_authoritative_for": [
+      "live_prices",
+      "live_availability",
+      "inventory",
+      "public_review_sentiment",
+      "external_ratings",
+      "future_plans"
+    ],
+    "live_state_policy": "handoff_required",
+    "scenario_policy": "Scenario claims may be made only where external_state is supported_for_recommendation.",
+    "external_consumer_rules": [
+      "Treat stable truth as official owner-authorized truth within declared scope.",
+      "Do not infer live prices or availability from this profile.",
+      "Use transactional handoff where live state is required.",
+      "Do not treat internal-only sections as public authority."
+    ],
+    "ignore_as_external_authority": [
+      "internal_verification",
+      "raw_trust_accounting",
+      "change_history",
+      "internal_diagnostics"
+    ]
+  },
+  "stable_truth": [
+    {
+      "claim_id": "clm_identity_brand",
+      "claim_key": "identity.brand_name",
+      "label": "Public brand name",
+      "authority_class": "official_owner_authorized",
+      "field_class": "stable_owner_governed",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "May be cited as official public business identity within declared scope.",
+      "value": "SynthWave Boutique Hotel"
+    },
+    {
+      "claim_id": "clm_location_address",
+      "claim_key": "location.address",
+      "label": "Official address",
+      "authority_class": "official_owner_authorized",
+      "field_class": "stable_owner_governed",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "May be cited as official location within declared scope.",
+      "value": "100 Example Quay, Sample City, EX 10001"
+    },
+    {
+      "claim_id": "clm_contact_website",
+      "claim_key": "contacts.official_website",
+      "label": "Official website",
+      "authority_class": "official_owner_authorized",
+      "field_class": "stable_owner_governed",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "May be used as official website reference.",
+      "value": "https://example.invalid/synthwave"
+    },
+    {
+      "claim_id": "clm_contact_booking",
+      "claim_key": "contacts.direct_booking_url",
+      "label": "Direct booking endpoint",
+      "authority_class": "official_owner_authorized",
+      "field_class": "stable_owner_governed",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "Use for live price, availability, and booking handoff.",
+      "value": "https://example.invalid/synthwave/book"
+    },
+    {
+      "claim_id": "clm_policy_late_arrival",
+      "claim_key": "policies.late_arrival",
+      "label": "Late arrival policy",
+      "authority_class": "official_owner_authorized",
+      "field_class": "scenario_relevant_stable",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "May be used for late-arrival scenario support within declared scope.",
+      "value": "Late arrival is available with prior confirmation through the booking handoff."
+    },
+    {
+      "claim_id": "clm_amenity_wifi",
+      "claim_key": "amenities.wifi",
+      "label": "Wi-Fi availability",
+      "authority_class": "official_owner_authorized",
+      "field_class": "scenario_relevant_stable",
+      "current_status": "current",
+      "validity_basis": "owner_authorized_daily_reaffirmation",
+      "reaffirmation_mode": "owner_authorized_daily",
+      "reaffirmed_as_of": "2026-04-23",
+      "current_until_changed": true,
+      "citation_instruction": "May be cited as stable amenity availability. Speed-sensitive claims require additional support.",
+      "value": "Property-wide Wi-Fi is available."
+    }
+  ],
+  "external_scenario_surface": [
+    {
+      "scenario_key": "late_arrival",
+      "label": "Late arrival",
+      "external_state": "supported_for_recommendation",
+      "recommendation_claim_allowed": true,
+      "handoff_required": false,
+      "supporting_claim_ids": [
+        "clm_policy_late_arrival",
+        "clm_contact_booking"
+      ],
+      "blocking_claim_ids": [],
+      "blocker_types": [],
+      "public_rule": "may_use_for_recommendation_within_declared_scope",
+      "projection_notes": [
+        "Recommendation claim is bounded to stable policy. Booking completion requires handoff."
+      ]
+    },
+    {
+      "scenario_key": "remote_work",
+      "label": "Remote work",
+      "external_state": "handoff_required",
+      "recommendation_claim_allowed": false,
+      "handoff_required": true,
+      "supporting_claim_ids": [
+        "clm_amenity_wifi"
+      ],
+      "blocking_claim_ids": [],
+      "blocker_types": [
+        "missing_reassurance"
+      ],
+      "public_rule": "route_to_handoff_or_make_no_claim",
+      "projection_notes": [
+        "General Wi-Fi availability exists. Work-specific quality claims require additional support or handoff."
+      ]
+    }
+  ],
+  "transactional_handoff": {
+    "exposure_class": "machine_public",
+    "required_for_live_state": true,
+    "handoff_type": "booking_engine",
+    "handoff_url": "https://example.invalid/synthwave/book",
+    "action_plane": {
+      "primary_action_type": "direct_booking",
+      "primary_action_url": "https://example.invalid/synthwave/book",
+      "fallback_action_type": "official_website",
+      "fallback_action_url": "https://example.invalid/synthwave",
+      "action_priority": [
+        "direct_booking",
+        "official_website"
+      ],
+      "messaging_action_scope": "not_part_of_transactional_handoff"
+    }
+  }
+}
