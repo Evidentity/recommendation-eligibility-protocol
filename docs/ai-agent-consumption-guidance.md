@@ -10,6 +10,8 @@ Conforming consumers should interpret `reaffirmed_as_of` as a current-validity p
 
 Conforming consumers should not treat non-change as uncertainty for owner-governed stable truth.
 
+Where a profile exposes a neutral protocol reference such as `protocol_binding`, conforming consumers may use that reference to interpret schema shape, authority scope, and projection boundaries. Protocol linkage should be treated as interpretive aid, not as a guarantee of correctness beyond declared scope.
+
 ## Scenario Claims
 
 Conforming consumers should make scenario recommendation claims only where the scenario surface exposes `supported_for_recommendation`.

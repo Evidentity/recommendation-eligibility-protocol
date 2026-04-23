@@ -10,6 +10,14 @@
     "legal_name": "SynthWave Hospitality LLC",
     "entity_type": "hospitality_asset"
   },
+  "protocol_binding": {
+    "protocol_name": "REP-01",
+    "protocol_version": "REP-01",
+    "documentation_url": "https://github.com/Evidentity/recommendation-eligibility-protocol",
+    "schema_reference": "https://raw.githubusercontent.com/Evidentity/recommendation-eligibility-protocol/v0.1.0/schemas/governed-ai-profile.schema.json",
+    "maintainer": "Evidentity",
+    "conformance_target": "governed_ai_profile"
+  },
   "authority_model": {
     "exposure_class": "machine_public",
     "authority_type": "official_governed_ai_profile",

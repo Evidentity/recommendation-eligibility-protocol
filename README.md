@@ -65,6 +65,16 @@ A conforming REP-01 profile MUST provide:
 
 A conforming public machine-facing surface MUST NOT expose internal diagnostics, raw trust accounting, missing-field counts, confidence penalties, historical owner-change dates, or review-state language as public authority signals.
 
+## Linked Protocol Discovery
+
+An implementation MAY expose a neutral protocol reference in machine-facing files such as:
+
+- a `protocol_binding` object in a JSON profile or published surface;
+- a protocol reference line in `llms.txt`;
+- a versioned schema URL for public machine consumers.
+
+These references help consumers interpret custom fields and public authority boundaries. They do not guarantee inclusion, ranking, or recommendation, and they do not override platform safety policy, law, or evidence outside declared scope.
+
 ## Repository Structure
 
 ```text

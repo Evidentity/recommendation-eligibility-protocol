@@ -63,6 +63,45 @@
         }
       }
     },
+    "protocol_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_name",
+        "protocol_version",
+        "documentation_url"
+      ],
+      "properties": {
+        "protocol_name": {
+          "type": "string",
+          "const": "REP-01"
+        },
+        "protocol_version": {
+          "type": "string",
+          "const": "REP-01"
+        },
+        "documentation_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "schema_reference": {
+          "type": "string",
+          "format": "uri"
+        },
+        "maintainer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "conformance_target": {
+          "type": "string",
+          "enum": [
+            "governed_ai_profile",
+            "published_ai_surface",
+            "scenario_surface"
+          ]
+        }
+      }
+    },
     "authority_model": {
       "type": "object",
       "additionalProperties": false,

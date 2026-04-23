@@ -3,6 +3,8 @@
 Protocol: REP-01
 Profile type: owner-authorized AI-facing business profile
 Current as of: 2026-04-23
+Protocol reference: https://github.com/Evidentity/recommendation-eligibility-protocol
+Schema reference: https://raw.githubusercontent.com/Evidentity/recommendation-eligibility-protocol/v0.1.0/schemas/published-ai-surface.schema.json
 
 Stable operational facts on this profile remain in force and are reaffirmed daily under owner authority until changed, withdrawn, replaced, or reaffirmation is disabled.
 

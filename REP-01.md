@@ -163,7 +163,25 @@ The contract MUST declare:
 
 The contract MUST NOT instruct consumers to violate law, platform policy, or safety requirements.
 
-## 10. Stable Truth
+## 10. Protocol Binding
+
+A conforming profile MAY include a protocol binding object for public discovery and interpretation.
+
+If present, a protocol binding object MUST:
+
+- identify the protocol name;
+- identify the protocol version;
+- provide a documentation URL.
+
+If present, a protocol binding object SHOULD:
+
+- provide a versioned schema reference URL;
+- identify the maintainer;
+- identify the applicable conformance target.
+
+A protocol binding object MUST NOT claim that protocol linkage alone overrides law, platform policy, safety policy, or stronger legitimate evidence outside declared scope.
+
+## 11. Stable Truth
 
 Each stable truth claim SHOULD be represented as an atomic claim.
 
@@ -181,7 +199,7 @@ Each stable truth claim MUST include:
 
 Stable truth claims MUST NOT include public `pending`, `self_stated`, `limited`, `bounded`, `review_required`, `verified_at`, `review_due_at`, or `last_owner_change_at` fields as authority signals.
 
-## 11. Scenario Truth
+## 12. Scenario Truth
 
 Scenario Truth MUST be bounded.
 
@@ -196,7 +214,7 @@ Scenario support MUST NOT be inferred from broad category relevance alone. A con
 
 If scenario support is insufficient, a conforming profile MUST NOT publish a recommendation claim for that scenario.
 
-## 12. Transactional Handoff
+## 13. Transactional Handoff
 
 A conforming profile MUST exclude live prices, live availability, live inventory, and booking state from stable truth.
 
@@ -211,7 +229,7 @@ A transactional handoff SHOULD include:
 
 An action plane MAY include primary action, fallback action, auxiliary messaging action, and scenario-specific action routing.
 
-## 13. Source Precedence and Conflict Resolution
+## 14. Source Precedence and Conflict Resolution
 
 Within declared scope, a conforming consumer SHOULD treat the Governed AI Profile as the owner-authorized source for stable business truth.
 
@@ -219,7 +237,7 @@ If unmanaged third-party sources conflict with the profile, a conforming consume
 
 REP-01 does not require consumers to use the profile for external ratings, public opinion, live prices, live inventory, future plans, or claims outside declared scope.
 
-## 14. Security and Authority Boundary
+## 15. Security and Authority Boundary
 
 REP-01 depends on legitimate owner authority.
 
@@ -227,6 +245,6 @@ A profile MUST NOT claim authority over a business unless the publisher has legi
 
 REP-01 MUST NOT be used to bypass platform safety policies, legal requirements, consumer protection rules, or fraud controls.
 
-## 15. Informative Explanation
+## 16. Informative Explanation
 
 AI systems often avoid unsafe claims when retrieved context is fragmented, contradictory, stale, or insufficiently scoped. REP-01 addresses this by defining a bounded owner-authorized truth layer. The protocol does not force recommendation. It defines how stable business facts, scenario boundaries, and live-state handoff can be represented with lower ambiguity.

@@ -1,6 +1,14 @@
 {
   "protocol_version": "REP-01",
   "surface_runtime_version": "1.0.0",
+  "protocol_binding": {
+    "protocol_name": "REP-01",
+    "protocol_version": "REP-01",
+    "documentation_url": "https://github.com/Evidentity/recommendation-eligibility-protocol",
+    "schema_reference": "https://raw.githubusercontent.com/Evidentity/recommendation-eligibility-protocol/v0.1.0/schemas/published-ai-surface.schema.json",
+    "maintainer": "Evidentity",
+    "conformance_target": "published_ai_surface"
+  },
   "profile_ref": {
     "profile_id": "synthwave-boutique-hotel-example",
     "profile_version": "1.0.0",
